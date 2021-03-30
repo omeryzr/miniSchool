@@ -1,4 +1,4 @@
 package com.miniSchool.MiniSchool.models;
 
-public class Lesson {
+public class Lecture {
 }
