@@ -75,10 +75,10 @@ add dependency in the pom.xml
     
 add configure command in the application.properties
 
-    spring.datasource.url= jdbc:postgresql://localhost:5432/backtospring?useSSL=false
+    spring.datasource.url= jdbc:postgresql://localhost:5432/minischool?useSSL=false
     
-    spring.datasource.username=postgres
-    spring.datasource.password=yourpassword
+    spring.datasource.username=apple     
+    spring.datasource.password=135579
     # The SQL dialect makes Hibernate generate better SQL for the chosen database
     spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
     
@@ -92,6 +92,8 @@ add configure command in the application.properties
     spring.jpa.show-sql=true
     spring.jpa.hibernate.ddl-auto=update
 
+
+<a href="https://github.com/omeryzr/miniSchool/blob/main/src/main/resources/application.properties">you can review the application.properties file </a>
 
 What we did so far;
     
