@@ -36,9 +36,9 @@ Student - Instructor - Lesson
 
 After added dependency
        
-       @Getter
-       @Setter
-       @NoArgsConstructor
+   @Getter
+   @Setter
+   @NoArgsConstructor
        
 <a href="https://github.com/omeryzr/miniSchool/blob/main/src/main/java/com/miniSchool/MiniSchool/models/Instructor.java">Click to review of Instructor model codes </a>
 
@@ -48,11 +48,11 @@ After added dependency
 
 add Jpa dependency in pom.xml
 
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.4.6</version>
-        </dependency>
+    <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
+        <version>2.4.6</version>
+    </dependency>
 
 Jpa repository instance
 
@@ -62,3 +62,40 @@ Jpa repository instance
     }
 <a href="https://github.com/omeryzr/miniSchool/blob/main/src/main/java/com/miniSchool/MiniSchool/repositories/StudentRepository.java">Click to review of Student repository codes </a>
 
+
+
+###### Configure and Connect PostgreSQL
+
+add dependency in the pom.xml
+
+    <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+    </dependency> 
+    
+add configure command in the application.properties
+
+    spring.datasource.url= jdbc:postgresql://localhost:5432/backtospring?useSSL=false
+    
+    spring.datasource.username=postgres
+    spring.datasource.password=yourpassword
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+    
+    # Disable feature detection by this undocumented parameter. Check the org.hibernate.engine.jdbc.internal.JdbcServiceImpl.configure method for more details.
+    spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults = false
+    
+    # Because detection is disabled you have to set correct dialect by hand.
+    spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL9Dialect
+    
+    
+    spring.jpa.show-sql=true
+    spring.jpa.hibernate.ddl-auto=update
+
+
+What we did so far;
+    
+   - we created Instructor, Student and Lecture models (tables)
+   - we created Instructor, Student and Lecture repositories (JPA extension)
+   - we connected named of minischool postgresql database with application
+    
