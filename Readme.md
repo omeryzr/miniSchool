@@ -77,8 +77,8 @@ add configure command in the application.properties
 
     spring.datasource.url= jdbc:postgresql://localhost:5432/minischool?useSSL=false
     
-    spring.datasource.username=apple     
-    spring.datasource.password=135579
+    spring.datasource.username=username //fill up your username     
+    spring.datasource.password=password //fill up your password
     # The SQL dialect makes Hibernate generate better SQL for the chosen database
     spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
     
@@ -101,3 +101,6 @@ What we did so far;
    - we created Instructor, Student and Lecture repositories (JPA extension)
    - we connected named of minischool postgresql database with application
     
+    
+
+
