@@ -3,15 +3,10 @@ package com.miniSchool.MiniSchool.controllers;
 
 import com.miniSchool.MiniSchool.models.Student;
 import com.miniSchool.MiniSchool.repositories.StudentRepository;
-import com.miniSchool.MiniSchool.students.StudentService;
-import lombok.Getter;
+import com.miniSchool.MiniSchool.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @RestController

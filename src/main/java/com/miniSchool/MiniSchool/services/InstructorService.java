@@ -1,4 +1,4 @@
-package com.miniSchool.MiniSchool.students;
+package com.miniSchool.MiniSchool.services;
 
 import com.miniSchool.MiniSchool.models.Instructor;
 import com.miniSchool.MiniSchool.repositories.InstructorRepository;

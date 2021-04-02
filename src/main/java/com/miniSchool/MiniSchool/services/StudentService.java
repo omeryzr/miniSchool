@@ -1,10 +1,9 @@
-package com.miniSchool.MiniSchool.students;
+package com.miniSchool.MiniSchool.services;
 
 import com.miniSchool.MiniSchool.models.Student;
 import com.miniSchool.MiniSchool.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class StudentService {

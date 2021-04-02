@@ -2,7 +2,7 @@ package com.miniSchool.MiniSchool.controllers;
 
 import com.miniSchool.MiniSchool.models.Instructor;
 import com.miniSchool.MiniSchool.repositories.InstructorRepository;
-import com.miniSchool.MiniSchool.students.InstructorService;
+import com.miniSchool.MiniSchool.services.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
