@@ -24,8 +24,6 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @PersistenceContext
-    private EntityManager entityManager;
 
     @GetMapping
     public List<Student> students(){
@@ -41,7 +39,6 @@ public class StudentController {
     @GetMapping
     @RequestMapping("{id}")
     public Student showStudentWithId(@PathVariable Long id){
-        System.out.println(id);
         return studentRepository.getOne(id);
     }
 
@@ -54,6 +51,12 @@ public class StudentController {
     //A different method to delete
     /*@RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody*/
+
+    @PutMapping("{id}")
+    public Student updateStudent(@RequestBody Student student, @PathVariable Long id){
+        studentService.updateStudent(student, id);
+        return student;
+    }
 
     @DeleteMapping("{id}")
     @ResponseBody

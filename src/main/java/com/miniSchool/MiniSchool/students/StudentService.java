@@ -17,4 +17,12 @@ public class StudentService {
         student.setStudentGrade(student.getStudentGrade());
         return studentRepository.saveAndFlush(student);
     }
+
+    public Student updateStudent(Student student, Long id){
+        student.setStudentId(id);
+        student.setFirstName(student.getFirstName());
+        student.setLastName(student.getLastName());
+        student.setStudentGrade(student.getStudentGrade());
+        return studentRepository.saveAndFlush(student);
+    }
 }
