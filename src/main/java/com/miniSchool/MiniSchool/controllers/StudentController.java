@@ -41,6 +41,7 @@ public class StudentController {
     @GetMapping
     @RequestMapping("{id}")
     public Student showStudentWithId(@PathVariable Long id){
+        System.out.println(id);
         return studentRepository.getOne(id);
     }
 
@@ -48,6 +49,16 @@ public class StudentController {
     public Student newStudent(@RequestBody Student student){
         studentService.addNewStudent(student);
         return student;
+    }
+
+    //A different method to delete
+    /*@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody*/
+
+    @DeleteMapping("{id}")
+    @ResponseBody
+    public void delete(@PathVariable Long id){
+        studentRepository.deleteById(id);
     }
 
 }
