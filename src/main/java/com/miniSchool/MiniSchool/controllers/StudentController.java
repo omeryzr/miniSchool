@@ -3,11 +3,15 @@ package com.miniSchool.MiniSchool.controllers;
 
 import com.miniSchool.MiniSchool.models.Student;
 import com.miniSchool.MiniSchool.repositories.StudentRepository;
+import com.miniSchool.MiniSchool.students.StudentService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @RestController
@@ -16,6 +20,12 @@ public class StudentController {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private StudentService studentService;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @GetMapping
     public List<Student> students(){
@@ -32,6 +42,12 @@ public class StudentController {
     @RequestMapping("{id}")
     public Student showStudentWithId(@PathVariable Long id){
         return studentRepository.getOne(id);
+    }
+
+    @PostMapping
+    public Student newStudent(@RequestBody Student student){
+        studentService.addNewStudent(student);
+        return student;
     }
 
 }
