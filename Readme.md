@@ -11,11 +11,11 @@ Student - Instructor - Lesson
     
 ###### 1 - Student ~ With Standard technique 
     
-        Description for Annotations 
+        `Description for Annotations 
             @Entity 
             @Id
             @GeneratedValue(strategy = GenerationType.IDENTITY)
-            @Column('student_id')
+            @Column('student_id')`
 
 <a href="https://github.com/omeryzr/miniSchool/blob/main/src/main/java/com/miniSchool/MiniSchool/models/Student.java">Click to review of Student model codes </a>
      
@@ -23,7 +23,7 @@ Student - Instructor - Lesson
     
       add in the file of pom.xml
       
-      <dependencies>
+      `<dependencies>
           ...
           <dependency>
               <groupId>org.projectlombok</groupId>
@@ -32,7 +32,7 @@ Student - Instructor - Lesson
               <scope>provided</scope>
           </dependency>
           ...
-      </dependencies>
+      </dependencies>`
 
 After added dependency
        
@@ -48,18 +48,18 @@ After added dependency
 
 add Jpa dependency in pom.xml
 
-    <dependency>
+    `<dependency>
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-jpa</artifactId>
         <version>2.4.6</version>
-    </dependency>
+    </dependency>`
 
 Jpa repository instance
 
-    @Repository
+    `@Repository
     public interface StudentRepository extends JpaRepository<Student, Long> {
     
-    }
+    }`
 <a href="https://github.com/omeryzr/miniSchool/blob/main/src/main/java/com/miniSchool/MiniSchool/repositories/StudentRepository.java">Click to review of Student repository codes </a>
 
 
@@ -68,10 +68,10 @@ Jpa repository instance
 
 add dependency in the pom.xml
 
-    <dependency>
+    `<dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-    </dependency> 
+    </dependency> `
     
 add configure command in the application.properties
 
@@ -103,4 +103,22 @@ What we did so far;
     
     
 
+###### Review Controller and Paths
+    
+    I will show a basic code lines about controller path
+    
+    `@RestController
+     @RequestMapping("/api/v1/students")
+    public class StudentController {
+    
+        @Autowired
+        private StudentRepository studentRepository;
+    
+        @GetMapping
+        public List<Student> students(){
+            return studentRepository.findAll();
+        }
+    }`
+    
+    as you can see above, we created 
 

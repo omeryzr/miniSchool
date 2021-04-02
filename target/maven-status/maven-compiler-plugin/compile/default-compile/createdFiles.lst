@@ -1,7 +1,10 @@
 com/miniSchool/MiniSchool/repositories/LectureRepository.class
 com/miniSchool/MiniSchool/repositories/StudentRepository.class
 com/miniSchool/MiniSchool/repositories/InstructorRepository.class
+com/miniSchool/MiniSchool/controllers/LectureController.class
 com/miniSchool/MiniSchool/models/Lecture.class
 com/miniSchool/MiniSchool/MiniSchoolApplication.class
+com/miniSchool/MiniSchool/controllers/InstructorController.class
 com/miniSchool/MiniSchool/models/Instructor.class
 com/miniSchool/MiniSchool/models/Student.class
+com/miniSchool/MiniSchool/controllers/StudentController.class

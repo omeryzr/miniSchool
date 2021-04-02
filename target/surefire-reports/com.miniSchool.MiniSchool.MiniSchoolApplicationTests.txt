@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.miniSchool.MiniSchool.MiniSchoolApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.301 s - in com.miniSchool.MiniSchool.MiniSchoolApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.741 s - in com.miniSchool.MiniSchool.MiniSchoolApplicationTests
