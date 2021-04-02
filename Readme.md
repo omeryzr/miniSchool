@@ -120,5 +120,24 @@ What we did so far;
         }
     }`
     
-    as you can see above, we created 
+    as you can see above, we created a modul to find all students
+    
+    
+    I will show you two kind filter request
+    
+    1 - /filter?grade=3 
+        `@GetMapping("/filter")
+        @ResponseBody
+        public List<Student> studentByGrade(@RequestParam int grade){
+            return studentRepository.findByStudentGrade(grade);
+        }`
+    
+    2 - /id
+    we will create this module with @RequestMapping and @PathVariable annotations
+        `@GetMapping
+        @RequestMapping("{id}")
+        public Student showStudentWithId(@PathVariable Long id){
+            return studentRepository.getOne(id);
+        } `
+
 
