@@ -21,7 +21,7 @@ public class StudentController {
 
 
     @GetMapping
-    public List<Student> students(){
+    public List<Student> students(Student student){
         return studentRepository.findAll();
     }
 
@@ -58,5 +58,4 @@ public class StudentController {
     public void delete(@PathVariable Long id){
         studentRepository.deleteById(id);
     }
-
 }

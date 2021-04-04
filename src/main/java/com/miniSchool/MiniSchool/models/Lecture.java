@@ -1,10 +1,12 @@
 package com.miniSchool.MiniSchool.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,4 +24,9 @@ public class Lecture {
 
     @Column(name = "lecture_grade")
     private int grade;
+
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy  = "lectures")
+    private List<Student> students;
+
 }
