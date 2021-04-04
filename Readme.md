@@ -140,4 +140,25 @@ What we did so far;
             return studentRepository.getOne(id);
         } `
 
+@ManyToMany relationship between Lecture and Students
 
+       @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+       @JoinTable(
+               name = "lecture_like",
+               joinColumns = @JoinColumn(name = "student_id"),
+               inverseJoinColumns = @JoinColumn(name = "lecture_id")
+       )
+       private List<Lecture> lectures;
+  >>Student table    
+       
+       
+       
+       @JsonIgnore
+           @ManyToMany(fetch = FetchType.LAZY,mappedBy  = "lectures")
+           private List<Student> students;
+  >>Lecture table
+
+         
+  we can avoid infinite loop rows with this command
+        
+        (cascade = CascadeType.ALL, fetch=FetchType.EAGER)   
