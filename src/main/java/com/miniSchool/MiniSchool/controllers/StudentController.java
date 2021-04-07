@@ -21,25 +21,24 @@ public class StudentController {
 
 
     @GetMapping
-    public List<Student> students(Student student){
-        return studentRepository.findAll();
+    public List<Student> students(){
+        return studentService.students();
     }
 
     @GetMapping("/filter")
     @ResponseBody
     public List<Student> studentByGrade(@RequestParam int grade){
-        return studentRepository.findByStudentGrade(grade);
+        return studentService.studentByGrade(grade);
     }
 
     @GetMapping
     @RequestMapping("{id}")
     public Student showStudentWithId(@PathVariable Long id){
-        return studentRepository.getOne(id);
+        return studentService.showStudentWithId(id);
     }
 
     @PostMapping
     public Student newStudent(@RequestBody Student student){
-
         studentService.addNewStudent(student);
         return student;
     }
@@ -56,7 +55,7 @@ public class StudentController {
 
     @DeleteMapping("{id}")
     @ResponseBody
-    public void delete(@PathVariable Long id){
-        studentRepository.deleteById(id);
+    public void deleteStudent(@PathVariable Long id){
+       studentService.deleteStudent(id);
     }
 }
