@@ -75,13 +75,9 @@ public class Student {
     public Student() {
     }
 
-    public Student(String firstName, String lastName, int studentGrade, List<Lecture> lectures){
+    public Student(String firstName, String lastName, int studentGrade){
         this.firstName = firstName;
         this.lastName = lastName;
         this.studentGrade = studentGrade;
-        this.lectures = lectures;
     }
-
-
-
 }

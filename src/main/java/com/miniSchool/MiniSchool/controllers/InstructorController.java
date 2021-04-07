@@ -22,6 +22,12 @@ public class InstructorController {
         return instructorRepository.findAll();
     }
 
+    @GetMapping
+    @RequestMapping("{id}")
+    public Instructor getInstructor(@PathVariable Long id){
+        return instructorRepository.getOne(id);
+    }
+
     @PostMapping
     public Instructor newInstructor(@RequestBody Instructor instructor){
         return instructorService.addNewInstructor(instructor);

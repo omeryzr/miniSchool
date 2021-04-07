@@ -29,4 +29,8 @@ public class Lecture {
     @ManyToMany(fetch = FetchType.LAZY,mappedBy  = "lectures")
     private List<Student> students;
 
+    public Lecture(String lectureName, int grade) {
+        this.lectureName = lectureName;
+        this.grade = grade;
+    }
 }
