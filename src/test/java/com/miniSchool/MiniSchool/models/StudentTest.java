@@ -24,7 +24,7 @@ public class StudentTest {
     @Test
     @Transactional
     public void testSaveAndGetAndDelete() throws Exception {
-        Student student = new Student("Omer", "Yazir", 3);
+        Student student = new Student((long)1, "Omer", "Yazir", 3);
         student = studentRepository.saveAndFlush(student);
 
         entityManager.clear();

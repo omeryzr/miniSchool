@@ -75,7 +75,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(String firstName, String lastName, int studentGrade){
+    public Student(Long studentId, String firstName, String lastName, int studentGrade){
+        this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.studentGrade = studentGrade;
