@@ -5,6 +5,8 @@ import com.miniSchool.MiniSchool.models.Student;
 import com.miniSchool.MiniSchool.repositories.StudentRepository;
 import com.miniSchool.MiniSchool.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,9 +40,9 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student newStudent(@RequestBody Student student){
+    public ResponseEntity<String> newStudent(@RequestBody Student student){
         studentService.addNewStudent(student);
-        return student;
+        return ResponseEntity.status(HttpStatus.OK).body("Created a student named " + student.getFirstName());
     }
 
     //A different method to delete
