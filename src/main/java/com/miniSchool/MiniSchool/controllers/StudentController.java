@@ -50,9 +50,9 @@ public class StudentController {
     @ResponseBody*/
 
     @PutMapping("{id}")
-    public Student updateStudent(@RequestBody Student student, @PathVariable Long id){
+    public ResponseEntity<String> updateStudent(@RequestBody Student student, @PathVariable Long id){
         studentService.updateStudent(student, id);
-        return student;
+        return ResponseEntity.status(HttpStatus.OK).body("Updated Student: " + student.getFirstName());
     }
 
     @DeleteMapping("{id}")
