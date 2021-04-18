@@ -23,8 +23,8 @@ public class StudentController {
 
 
     @GetMapping
-    public List<Student> students(){
-        return studentService.students();
+    public ResponseEntity<List<Student>> students(){
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.students());
     }
 
     @GetMapping("/filter")
@@ -42,7 +42,7 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<String> newStudent(@RequestBody Student student){
         studentService.addNewStudent(student);
-        return ResponseEntity.status(HttpStatus.OK).body("Created a student named " + student.getFirstName());
+        return ResponseEntity.stackle   tus(HttpStatus.OK).body("Created a student named " + student.getFirstName());
     }
 
     //A different method to delete

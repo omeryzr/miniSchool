@@ -162,3 +162,13 @@ What we did so far;
   we can avoid infinite loop rows with this command
         
         (cascade = CascadeType.ALL, fetch=FetchType.EAGER)   
+
+
+###ResponseEntity
+
+ResponseEntity represents the whole HTTP response: status code, headers, and body.
+
+    @GetMapping("/hello")
+    ResponseEntity<String> hello() {
+        return new ResponseEntity<>("Hello World!", HttpStatus.OK);
+    } 
