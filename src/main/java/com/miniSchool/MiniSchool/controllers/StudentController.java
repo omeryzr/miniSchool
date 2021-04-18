@@ -29,8 +29,8 @@ public class StudentController {
 
     @GetMapping("/filter")
     @ResponseBody
-    public List<Student> studentByGrade(@RequestParam int grade){
-        return studentService.studentByGrade(grade);
+    public ResponseEntity<List<Student>> studentByGrade(@RequestParam int grade){
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.studentByGrade(grade));
     }
 
     @GetMapping
@@ -42,7 +42,7 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<String> newStudent(@RequestBody Student student){
         studentService.addNewStudent(student);
-        return ResponseEntity.stackle   tus(HttpStatus.OK).body("Created a student named " + student.getFirstName());
+        return ResponseEntity.status(HttpStatus.OK).body("Created a student named " + student.getFirstName());
     }
 
     //A different method to delete
@@ -57,7 +57,8 @@ public class StudentController {
 
     @DeleteMapping("{id}")
     @ResponseBody
-    public void deleteStudent(@PathVariable Long id){
-       studentService.deleteStudent(id);
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id){
+        studentService.deleteStudent(id);
+       return ResponseEntity.status(HttpStatus.OK).body("Deleted");
     }
 }
