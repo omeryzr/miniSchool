@@ -4,6 +4,8 @@ import com.miniSchool.MiniSchool.models.Instructor;
 import com.miniSchool.MiniSchool.repositories.InstructorRepository;
 import com.miniSchool.MiniSchool.services.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,29 +20,29 @@ public class InstructorController {
     private InstructorService instructorService;
 
     @GetMapping
-    public List<Instructor> instructors(){
-        return instructorRepository.findAll();
+    public ResponseEntity<List<Instructor>> instructors(){
+        return ResponseEntity.status(HttpStatus.OK).body(instructorRepository.findAll());
     }
 
     @GetMapping
     @RequestMapping("{id}")
-    public Instructor getInstructor(@PathVariable Long id){
-        return instructorRepository.getOne(id);
+    public ResponseEntity<Instructor> getInstructor(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(instructorRepository.getOne(id));
     }
 
     @PostMapping
-    public Instructor newInstructor(@RequestBody Instructor instructor){
-        return instructorService.addNewInstructor(instructor);
+    public ResponseEntity<String> newInstructor(@RequestBody Instructor instructor){
+        return ResponseEntity.status(HttpStatus.OK).body("Created a User named: " + instructor.getInstructorFirstName());
     }
 
     @PutMapping("{id}")
-    public Instructor update(@RequestBody Instructor instructor, @PathVariable Long id){
-        return instructorService.updateInstructor(instructor, id);
+    public ResponseEntity<Instructor> update(@RequestBody Instructor instructor, @PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(instructorService.updateInstructor(instructor, id));
     }
 
     @DeleteMapping("{id}")
-    public void delete(@PathVariable Long id){
-        instructorRepository.deleteById(id);
+    public ResponseEntity<String> delete(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body("User deleted");
     }
 
 }
