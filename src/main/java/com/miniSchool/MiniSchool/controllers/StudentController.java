@@ -35,8 +35,8 @@ public class StudentController {
 
     @GetMapping
     @RequestMapping("{id}")
-    public Student showStudentWithId(@PathVariable Long id){
-        return studentService.showStudentWithId(id);
+    public ResponseEntity<Student> showStudentWithId(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.showStudentWithId(id));
     }
 
     @PostMapping
